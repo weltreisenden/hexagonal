@@ -3,3 +3,4 @@
 /application/build/
 /domain/build/
 /infrastructure/build/
+.idea/
