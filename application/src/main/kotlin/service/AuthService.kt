@@ -9,7 +9,7 @@ import model.User
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import port.outbound.PasswordEncoderOutboundPort
-import port.outbound.TokenProviderPort
+import port.outbound.TokenProviderOutboundPort
 import port.outbound.UserOutboundPort
 
 @Service
@@ -17,7 +17,7 @@ import port.outbound.UserOutboundPort
 class AuthService (
     private val userOutboundPort: UserOutboundPort,
     private val passwordEncoderOutboundPort: PasswordEncoderOutboundPort,
-    private val tokenProviderOutboundPort: TokenProviderPort
+    private val tokenProviderOutboundPort: TokenProviderOutboundPort
 ) : AuthInboundPort {
 
     override fun register(username: String, email: String, password: String): Response {
