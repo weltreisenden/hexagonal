@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: kotlin-hexagonal-board
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+server:
+  port: 8081
+
+# JWT 설정
+jwt:
+  secret: mySecretKeyForJWTTokenGenerationThatShouldBeLongEnoughForSecurity123
+  expiration: 86400000  # 24시간 (밀리초)
+
+logging:
+  level:
+    com.example.board: DEBUG
+    org.springframework.web: DEBUG

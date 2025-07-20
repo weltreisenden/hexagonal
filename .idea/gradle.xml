@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -7,9 +8,17 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/adapter" />
+            <option value="$PROJECT_DIR$/adapter/inbound" />
+            <option value="$PROJECT_DIR$/adapter/inbound/controller" />
+            <option value="$PROJECT_DIR$/adapter/outbound" />
+            <option value="$PROJECT_DIR$/adapter/outbound/repository" />
             <option value="$PROJECT_DIR$/application" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/infrastructure" />
+            <option value="$PROJECT_DIR$/infrastructure/jpa" />
+            <option value="$PROJECT_DIR$/server" />
+            <option value="$PROJECT_DIR$/server/api" />
           </set>
         </option>
       </GradleProjectSettings>

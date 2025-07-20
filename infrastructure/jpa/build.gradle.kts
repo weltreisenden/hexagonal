@@ -1,6 +1,8 @@
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.kotlin.plugin.spring")
+    id("org.jetbrains.kotlin.plugin.jpa")
+    id("org.jetbrains.kotlin.plugin.allopen")
     id("org.springframework.boot")
     id("io.spring.dependency-management")
 }
@@ -18,16 +20,26 @@ kotlin {
 }
 
 dependencies {
-    implementation(project(":domain"))
+
+    // Spring Boot
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    // Jackson Kotlin
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    
-    // Spring Core
-    implementation("org.springframework:spring-context:6.1.0")
-    implementation("org.springframework:spring-tx:6.1.0")
-    
-    testImplementation("org.springframework:spring-test:6.1.0")
+
+    // Database
+    runtimeOnly("com.mysql:mysql-connector-j")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+allOpen {
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.MappedSuperclass")
+    annotation("jakarta.persistence.Embeddable")
 }
 
 tasks.withType<Test> {

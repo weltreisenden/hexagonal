@@ -1,6 +1,5 @@
 plugins {
     id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.plugin.spring")
     id("org.springframework.boot")
     id("io.spring.dependency-management")
 }
@@ -19,13 +18,19 @@ kotlin {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":application"))
+    implementation(project(":infrastructure:jpa"))
+
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    
-    // Spring Core
-    implementation("org.springframework:spring-context:6.1.0")
-    implementation("org.springframework:spring-tx:6.1.0")
-    
-    testImplementation("org.springframework:spring-test:6.1.0")
+
+    // JWT
+    implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
+
+
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

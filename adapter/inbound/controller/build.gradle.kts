@@ -1,6 +1,5 @@
 plugins {
     id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.plugin.spring")
     id("org.springframework.boot")
     id("io.spring.dependency-management")
 }
@@ -19,13 +18,14 @@ kotlin {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":application"))
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    
-    // Spring Core
-    implementation("org.springframework:spring-context:6.1.0")
-    implementation("org.springframework:spring-tx:6.1.0")
-    
-    testImplementation("org.springframework:spring-test:6.1.0")
+
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
